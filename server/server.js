@@ -1,4 +1,4 @@
-onst express = require('express');
+const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 
@@ -30,4 +30,4 @@ db.once('open', () => {
     console.log(`API server running on port ${PORT}!`);
   });
     
- 
+});
