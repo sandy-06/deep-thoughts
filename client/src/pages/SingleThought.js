@@ -6,7 +6,7 @@ import ReactionList from '../components/ReactionList';
 
 const SingleThought = props => {
   const { id: thoughtId } = useParams();
-  console.log(thoughtId);
+ 
   const { loading, data } = useQuery(QUERY_THOUGHT, {
     variables: { id: thoughtId }
   });
@@ -30,7 +30,9 @@ const SingleThought = props => {
           <p>{thought.thoughtText}</p>
         </div>
       </div>
-      {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
+      {thought.reactionCount > 0 && (
+      <ReactionList reactions={thought.reactions} />
+      )}
     </div>
   );
 };
