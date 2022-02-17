@@ -1,6 +1,14 @@
 import React from 'react';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
+
+
 
 const Profile = () => {
+  const { username: userParam } = useParams();
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam }
+  });
+  const user = data?.me || data?.user || {};
   return (
     <div>
       <div className="flex-row mb-3">
